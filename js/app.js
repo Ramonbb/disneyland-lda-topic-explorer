@@ -22,8 +22,8 @@ function drawChart(topic) {
   const left = width < 360 ? 95 : 112;
   const right = width - 16;
   const top = 8;
-  const bottom = 488;
-  const height = 543;
+  const bottom = top + topic.terms.length * 24;
+  const height = bottom + 55;
   const x = d3.scaleLinear().domain([0, d3.max(topic.terms, d => d.value)]).nice()
     .range([left, right]);
   const y = d3.scaleBand().domain(topic.terms.map(d => d.term))
@@ -105,6 +105,7 @@ async function start() {
     if (selected && width && width !== previousWidth) drawChart(selected);
     previousWidth = width;
   }).observe(chart);
+  showTopic(topics.find(topic => topic.id === 1));
 }
 
 start().catch(error => {
