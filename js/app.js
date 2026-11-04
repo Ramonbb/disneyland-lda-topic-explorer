@@ -9,7 +9,7 @@ const geometry = [
 // Keep topic 1 at its measured radius and scale the other circle areas to match.
 const referenceRadius = 117;
 const referencePrevalence = geometry[0][2];
-const topicColors = ["#376d98", "#2c5d87", "#467da9", "#346897", "#4b79a2", "#3b648a", "#315b80"];
+const topicColors = ["#376d98", "#19766d", "#6958a0", "#a15532", "#a33c69", "#527138", "#546272"];
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const status = document.querySelector("#status");
 const details = document.querySelector("#details");
