@@ -23,6 +23,10 @@
         <text class="axis-label" x="610" y="268">PC2</text>
         <g id="nodes"></g>
       </svg>
+      <details class="methodology">
+        <summary>About this visualization</summary>
+        <p>Topics were identified using Latent Dirichlet Allocation (LDA). The map was reconstructed from the LDAvis visualization. For each selected topic, the 30 most relevant terms and three representative visitor reviews are displayed. Relevance values of terms were transformed using Exp(Relevance) to facilitate their visualization on a positive scale, without altering their relative ranking within each topic.</p>
+      </details>
     </section>
     <div class="card results">
       <p id="status" role="status">Select a topic on the map to explore its results.</p>
@@ -49,12 +53,5 @@
       </div>
     </div>
   </main>
-  <footer class="page-footer">
-    <details class="methodology">
-      <summary>About this visualization</summary>
-      <p>Topics were identified using Latent Dirichlet Allocation (LDA). Each circle represents one topic, and its size reflects topic prevalence. Circle positions show a two-dimensional projection of intertopic distances. The distances on the map approximate the underlying relationships between topics.</p>
-      <p>The map was reconstructed from an LDAvis screenshot. Its positions and sizes were measured from the image and are approximate. For the selected topic, the chart shows the 30 most relevant terms, and three visitor reviews illustrate the topic’s content.</p>
-    </details>
-  </footer>
 </body>
 </html>
