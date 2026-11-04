@@ -6,7 +6,7 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; }
-.page-header, main { max-width: 1440px; margin: auto; padding-inline: clamp(16px, 4vw, 60px); }
+.page-header, main, .page-footer { max-width: 1440px; margin: auto; padding-inline: clamp(16px, 4vw, 60px); }
 .page-header { padding-block: 42px 24px; }
 .eyebrow { color: #365a76; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 h1 { font-size: clamp(2rem, 5vw, 3.3rem); line-height: 1.12; letter-spacing: -.035em; margin: .35em 0 .2em; }
@@ -14,13 +14,7 @@ p { margin: .65em 0 0; }
 .page-header p, #status, #definition { color: #425a70; }
 main { display: grid; grid-template-columns: minmax(0, 45fr) minmax(0, 55fr); gap: 20px; align-items: start; padding-bottom: 36px; }
 .card { min-width: 0; background: white; border: 1px solid #dce5ee; border-radius: 14px; padding: clamp(15px, 2.1vw, 28px); box-shadow: 0 2px 7px #17354c08; }
-.left-column {
-  display: grid;
-  gap: 20px;
-  position: sticky;
-  top: min(16px, calc(100dvh - var(--left-height, 0px) - 16px));
-}
-#review-panel[hidden] { display: none; }
+.map-card { position: sticky; top: 16px; }
 h2 { font-size: 1.15rem; margin: 0; line-height: 1.3; }
 .map-card h2 span { display: block; margin-top: 4px; font-size: .85rem; font-weight: 400; color: #425a70; }
 #map { display: block; width: 100%; height: auto; max-height: calc(100dvh - 128px); margin-top: 12px; }
@@ -28,7 +22,7 @@ h2 { font-size: 1.15rem; margin: 0; line-height: 1.3; }
 .axis-label { font-size: 36px; fill: #425a70; }
 .topic { cursor: pointer; outline: none; touch-action: manipulation; }
 .topic circle { fill: #a3c8df; fill-opacity: .62; stroke: #648ba4; vector-effect: non-scaling-stroke; }
-.topic[aria-pressed="true"] circle { fill: #d54949; stroke: #922e31; fill-opacity: .72; }
+.topic[aria-pressed="true"] circle { fill: #d54949; stroke: #922e31; stroke-width: 1.5px; fill-opacity: .72; }
 .topic:hover circle, .topic:focus-visible circle { stroke: #162d42; stroke-width: 2.5px; }
 .topic text { fill: #152c40; font-size: 54px; font-weight: 750; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
 #status { margin: 0; }
@@ -39,14 +33,45 @@ h2 { font-size: 1.15rem; margin: 0; line-height: 1.3; }
 #chart .tick text { font: 12px system-ui, sans-serif; fill: #233e55; }
 #chart .grid line { stroke: #e2e9f0; }
 #chart .grid path { display: none; }
-.chart-note { color: #425a70; font-size: .875rem; }
+.chart-heading { position: relative; display: flex; align-items: center; gap: 8px; }
+.chart-info summary {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #9aafc1;
+  border-radius: 50%;
+  color: #365a76;
+  font-size: .8rem;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+.chart-info summary::-webkit-details-marker { display: none; }
+.chart-info p {
+  position: absolute;
+  z-index: 1;
+  inset: 100% auto auto 0;
+  max-width: min(100%, 430px);
+  padding: 12px;
+  border: 1px solid #dce5ee;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 7px #17354c16;
+  color: #425a70;
+  font-size: .875rem;
+}
+.page-footer { padding-bottom: 32px; }
+.methodology { max-width: 72ch; color: #425a70; font-size: .9rem; }
+.methodology summary { width: fit-content; color: #365a76; cursor: pointer; font-weight: 650; }
 .bar:hover { filter: brightness(.82); }
 #reviews { display: grid; gap: 10px; margin-top: 12px; }
-.review { margin: 0; padding: 12px 15px; background: #f5f8fb; border: 1px solid #e1e9f0; border-radius: 8px; overflow-wrap: anywhere; }
-.review p { white-space: pre-wrap; }
+.review { margin: 0; padding: 10px 14px; background: #f8fafc; border: 1px solid #e1e9f0; border-inline-start: 3px solid #779ab7; border-radius: 8px; overflow-wrap: anywhere; }
+.review strong { color: #365a76; font-size: .78rem; }
+.review p { margin-top: .25em; line-height: 1.6; white-space: pre-wrap; }
 @media (max-width: 720px) {
   main { grid-template-columns: minmax(0, 1fr); }
   .page-header { padding-top: 26px; }
-  .left-column { position: static; }
+  .map-card { position: static; }
   #map { max-height: 65vh; }
 }
