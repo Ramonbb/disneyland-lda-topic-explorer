@@ -6,18 +6,22 @@ const geometry = [
   [348, 684.5, 113], [599.5, 1262, 112.3], [218, 916, 111],
   [1080, 652, 109.7]
 ];
+const topicColors = ["#376d98", "#19766d", "#6958a0", "#a15532", "#a33c69", "#527138", "#3f6376"];
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const status = document.querySelector("#status");
 const details = document.querySelector("#details");
 const chart = document.querySelector("#chart");
 let selected;
+let chartWidth;
 
-function drawChart(topic) {
+function drawChart(topic, animate = false) {
   if (!window.d3) {
     chart.textContent = "The chart library could not be loaded.";
     return;
   }
   const width = Math.floor(chart.clientWidth);
   if (!width) return;
+  chartWidth = width;
   chart.replaceChildren();
   const left = width < 360 ? 95 : 112;
   const right = width - 16;
@@ -33,10 +37,16 @@ function drawChart(topic) {
   const ticks = width < 380 ? 4 : 6;
   svg.append("g").attr("class", "grid").attr("transform", `translate(0,${bottom})`)
     .call(d3.axisBottom(x).ticks(ticks).tickSize(top - bottom).tickFormat(() => ""));
-  svg.selectAll(".bar").data(topic.terms).join("rect").attr("class", "bar")
-    .attr("x", d => x(Math.min(0, d.value))).attr("y", d => y(d.term))
-    .attr("height", y.bandwidth()).attr("width", d => Math.abs(x(d.value) - x(0)))
-    .append("title").text(d => `${d.term} · Term relevance ${d.value}`);
+  const grow = animate && !reduceMotion.matches;
+  const barWidth = d => x(d.value) - x(0);
+  const bars = svg.selectAll(".bar").data(topic.terms).join("rect").attr("class", "bar")
+    .attr("fill", topicColors[topic.id - 1]).attr("x", x(0)).attr("y", d => y(d.term))
+    .attr("height", y.bandwidth()).attr("width", grow ? 0 : barWidth);
+  bars.append("title").text(d => `${d.term} · Term relevance ${d.value}`);
+  if (grow) {
+    bars.transition().duration(550).delay((_, index) => index * 12)
+      .ease(d3.easeCubicOut).attr("width", barWidth);
+  }
   svg.append("g").attr("transform", `translate(${left},0)`).call(d3.axisLeft(y).tickSize(0))
     .call(g => g.select(".domain").remove());
   svg.append("g").attr("transform", `translate(0,${bottom})`).call(d3.axisBottom(x).ticks(ticks));
@@ -67,7 +77,7 @@ function showTopic(topic) {
   });
   document.querySelector("#reviews").replaceChildren(...reviews);
   details.hidden = false;
-  drawChart(topic);
+  drawChart(topic, true);
 }
 
 function svgElement(tag, attrs) {
@@ -99,11 +109,8 @@ async function start() {
     });
     nodes.append(group);
   }
-  let previousWidth;
-  new ResizeObserver(([entry]) => {
-    const width = entry.contentRect.width;
-    if (selected && width && width !== previousWidth) drawChart(selected);
-    previousWidth = width;
+  new ResizeObserver(() => {
+    if (selected && chart.clientWidth !== chartWidth) drawChart(selected);
   }).observe(chart);
   showTopic(topics.find(topic => topic.id === 1));
 }
