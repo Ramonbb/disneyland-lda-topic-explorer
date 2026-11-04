@@ -10,26 +10,20 @@
 </head>
 <body>
   <header class="page-header">
-    <div class="eyebrow">Disneyland visitor reviews / Topic modeling</div>
-    <h1>Interactive Topic Explorer</h1>
-    <p>Exploring visitor experiences at Disney theme parks through topic modeling</p>
+    <div class="eyebrow">DISNEY THEME PARKS · ONLINE REVIEWS</div>
+    <h1>Exploring the Visitor Experience</h1>
+    <p>An interactive LDA topic analysis of online reviews</p>
   </header>
   <main>
-    <div class="left-column">
-      <section class="card map-card" aria-labelledby="map-heading">
-        <h2 id="map-heading">Intertopic Distance Map <span>(via multidimensional scaling)</span></h2>
-        <svg id="map" viewBox="-20 170 1235 1230" role="group" aria-labelledby="map-heading">
-          <path class="axes" d="M68 784H1128 M598 254V1314"/>
-          <text class="axis-label" x="68" y="824">PC1</text>
-          <text class="axis-label" x="610" y="268">PC2</text>
-          <g id="nodes"></g>
-        </svg>
-      </section>
-      <section id="review-panel" class="card" aria-labelledby="reviews-heading" hidden>
-        <h2 id="reviews-heading">Representative visitor reviews</h2>
-        <div id="reviews"></div>
-      </section>
-    </div>
+    <section class="card map-card" aria-labelledby="map-heading">
+      <h2 id="map-heading">Intertopic Distance Map <span>(via multidimensional scaling)</span></h2>
+      <svg id="map" viewBox="-20 170 1235 1230" role="group" aria-labelledby="map-heading">
+        <path class="axes" d="M68 784H1128 M598 254V1314"/>
+        <text class="axis-label" x="68" y="824">PC1</text>
+        <text class="axis-label" x="610" y="268">PC2</text>
+        <g id="nodes"></g>
+      </svg>
+    </section>
     <div class="card results">
       <p id="status" role="status">Select a topic on the map to explore its results.</p>
       <div id="details" hidden>
@@ -39,12 +33,28 @@
           <p id="definition"></p>
         </section>
         <section aria-labelledby="terms-heading">
-          <h2 id="terms-heading">Top 30 relevant terms</h2>
+          <div class="chart-heading">
+            <h2 id="terms-heading">Top 30 relevant terms</h2>
+            <details class="chart-info">
+              <summary aria-label="About the term relevance values"><span aria-hidden="true">i</span></summary>
+              <p>The bars show the relevance values supplied in the source workbook. Exponentiating a relevance score places it on a positive scale and preserves its rank within the topic. The workbook does not specify whether this transformation was applied upstream.</p>
+            </details>
+          </div>
           <div id="chart"></div>
-          <p class="chart-note"><em>Note.</em> Relevance values of terms were transformed using Exp(Relevance) to facilitate their visualization on a positive scale, without altering their relative ranking within each topic.</p>
+        </section>
+        <section aria-labelledby="reviews-heading">
+          <h2 id="reviews-heading">Representative visitor reviews</h2>
+          <div id="reviews"></div>
         </section>
       </div>
     </div>
   </main>
+  <footer class="page-footer">
+    <details class="methodology">
+      <summary>About this visualization</summary>
+      <p>Topics were identified using Latent Dirichlet Allocation (LDA). Each circle represents one topic, and its size reflects topic prevalence. Circle positions show a two-dimensional projection of intertopic distances. The distances on the map approximate the underlying relationships between topics.</p>
+      <p>The map was reconstructed from an LDAvis screenshot. Its positions and sizes were measured from the image and are approximate. For the selected topic, the chart shows the 30 most relevant terms, and three visitor reviews illustrate the topic’s content.</p>
+    </details>
+  </footer>
 </body>
 </html>
