@@ -6,7 +6,7 @@ const geometry = [
   [348, 684.5, 113], [599.5, 1262, 112.3], [218, 916, 111],
   [1080, 652, 109.7]
 ];
-const topicColors = ["#376d98", "#19766d", "#6958a0", "#a15532", "#a33c69", "#527138", "#3f6376"];
+const topicColors = ["#376d98", "#2c5d87", "#467da9", "#346897", "#4b79a2", "#3b648a", "#315b80"];
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const status = document.querySelector("#status");
 const details = document.querySelector("#details");
@@ -26,7 +26,7 @@ function drawChart(topic, animate = false) {
   const left = width < 360 ? 95 : 112;
   const right = width - 16;
   const top = 8;
-  const bottom = top + topic.terms.length * 24;
+  const bottom = top + topic.terms.length * 22;
   const height = bottom + 55;
   const x = d3.scaleLinear().domain([0, d3.max(topic.terms, d => d.value)]).nice()
     .range([left, right]);
@@ -76,7 +76,6 @@ function showTopic(topic) {
     return card;
   });
   document.querySelector("#reviews").replaceChildren(...reviews);
-  document.querySelector("#review-panel").hidden = false;
   details.hidden = false;
   drawChart(topic, true);
 }
@@ -100,7 +99,9 @@ async function start() {
     });
     const label = svgElement("text", { x: cx, y: cy, "aria-hidden": true });
     label.textContent = topic.id;
-    group.append(svgElement("circle", { cx, cy, r }), label);
+    const tooltip = svgElement("title", {});
+    tooltip.textContent = group.getAttribute("aria-label");
+    group.append(tooltip, svgElement("circle", { cx, cy, r }), label);
     group.addEventListener("click", () => showTopic(topic));
     group.addEventListener("keydown", event => {
       if (event.key === "Enter" || event.key === " ") {
@@ -113,10 +114,6 @@ async function start() {
   new ResizeObserver(() => {
     if (selected && chart.clientWidth !== chartWidth) drawChart(selected);
   }).observe(chart);
-  const leftColumn = document.querySelector(".left-column");
-  new ResizeObserver(([entry]) => {
-    leftColumn.style.setProperty("--left-height", `${entry.contentRect.height}px`);
-  }).observe(leftColumn);
   showTopic(topics.find(topic => topic.id === 1));
 }
 
