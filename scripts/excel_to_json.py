@@ -1,4 +1,4 @@
-"""Export the two source tables in tabla.xlsx as a static topic dataset."""
+"""Export the topic overview and term relevance workbooks as a static topic dataset."""
 import argparse
 import json
 from math import isfinite
@@ -33,7 +33,7 @@ def required_text(value, field):
     return value
 
 
-def convert(source):
+def convert(source, terms_source):
     sheet = pd.read_excel(source, sheet_name=SHEET, header=None, dtype=object,
                           keep_default_na=False, engine="openpyxl")
     topics = {}
@@ -57,6 +57,14 @@ def convert(source):
     if set(topics) != set(range(1, 8)):
         raise ValueError("The overview must contain topic identifiers 1 through 7")
 
+    return with_terms([topics[i] for i in range(1, 8)], terms_source)
+
+
+def with_terms(topics, terms_source):
+    topics = [{**topic, "terms": []} for topic in topics]
+    by_name = {topic["name"]: topic for topic in topics}
+    sheet = pd.read_excel(terms_source, sheet_name="Sheet 1", header=None,
+                          dtype=object, keep_default_na=False, engine="openpyxl")
     for row in table(sheet, TERMS):
         name = row["topic"]
         if name not in by_name:
@@ -67,23 +75,24 @@ def convert(source):
             raise ValueError(f"Missing or invalid relevance for {name}, {term}")
         by_name[name]["terms"].append({"term": term, "value": value})
 
-    for topic in topics.values():
+    for topic in topics:
         terms = topic["terms"]
-        if len(terms) != 20 or len({entry["term"] for entry in terms}) != 20:
-            raise ValueError(f"{topic['name']} must have 20 distinct terms")
+        if len(terms) != 30 or len({entry["term"] for entry in terms}) != 30:
+            raise ValueError(f"{topic['name']} must have 30 distinct terms")
         terms.sort(key=lambda entry: entry["value"], reverse=True)
 
-    return {"metric": "relevance", "topics": [topics[i] for i in range(1, 8)]}
+    return {"metric": "relevance", "topics": topics}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("source", type=Path)
+    parser.add_argument("source", type=Path, help="Workbook with topic descriptions and reviews")
+    parser.add_argument("terms_source", type=Path, help="Workbook with 30 relevance scores per topic")
     parser.add_argument("--output", type=Path,
                         default=Path(__file__).resolve().parents[1] / "data" / "topics.json")
     args = parser.parse_args()
     try:
-        data = convert(args.source)
+        data = convert(args.source, args.terms_source)
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(data, ensure_ascii=False, indent=2, allow_nan=False)
                                + "\n", encoding="utf-8")
