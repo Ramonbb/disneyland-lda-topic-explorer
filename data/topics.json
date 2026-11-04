@@ -1,0 +1,649 @@
+{
+  "metric": "relevance",
+  "topics": [
+    {
+      "id": 1,
+      "name": "Overall experience",
+      "definition": "General evaluations of visits to Disney theme parks, including family experiences, comparisons between parks, and perceptions of their appeal and magical atmosphere.",
+      "reviews": [
+        "I am a huge fan of Disney and have been to Disneyland in California several times and Walt Disney World a few times as well, so when my husband and I planned a trip to Europe, we decided to fit in a day at Disneyland Paris.",
+        "Having been to Disneyland in Anaheim four times and having heard that Hong Kong Disneyland was much smaller, we were pleasantly surprised at how much it really felt like the original Disneyland.",
+        "I live near Disney World and visit it with my East Coast family from time to time; Disneyland is smaller, but I enjoyed the ambiance of the Anaheim park more."
+      ],
+      "terms": [
+        {
+          "term": "disneyland",
+          "value": 0.39209324056689066
+        },
+        {
+          "term": "disney",
+          "value": 0.3107121135146985
+        },
+        {
+          "term": "visit",
+          "value": 0.20394814576903625
+        },
+        {
+          "term": "paris",
+          "value": 0.18064804048328936
+        },
+        {
+          "term": "parks",
+          "value": 0.17087462956698116
+        },
+        {
+          "term": "park",
+          "value": 0.15761402321404736
+        },
+        {
+          "term": "years",
+          "value": 0.14801043195494726
+        },
+        {
+          "term": "visited",
+          "value": 0.14507290684541063
+        },
+        {
+          "term": "experience",
+          "value": 0.14226884725499986
+        },
+        {
+          "term": "place",
+          "value": 0.1402367997624436
+        },
+        {
+          "term": "family",
+          "value": 0.13968735549040429
+        },
+        {
+          "term": "florida",
+          "value": 0.13761697956300284
+        },
+        {
+          "term": "hong",
+          "value": 0.1360550593073638
+        },
+        {
+          "term": "kong",
+          "value": 0.13600037540721852
+        },
+        {
+          "term": "trip",
+          "value": 0.13466396994808433
+        },
+        {
+          "term": "year",
+          "value": 0.1315855178828594
+        },
+        {
+          "term": "world",
+          "value": 0.1307915144824843
+        },
+        {
+          "term": "california",
+          "value": 0.12599751982824337
+        },
+        {
+          "term": "children",
+          "value": 0.12168005352737715
+        },
+        {
+          "term": "theme",
+          "value": 0.11451071258131101
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Queues and waiting times",
+      "definition": "Visitor experiences with queues and waiting times for attractions, including crowd levels, fast-pass systems, and strategies to minimize waiting times.",
+      "reviews": [
+        "I recommend getting FastPasses for popular rides or you'll spend a lot of time waiting; even with FastPasses, we waited 15 minutes on some rides.",
+        "We went on a fairly crowded day, but took advantage of FastPasses and single-rider lines, so we didn't spend the whole day in lines.",
+        "On Monday, there were multiple rides with waiting times of nearly 90 minutes, but on Wednesday, even the most popular rides had waiting times of barely 30 minutes."
+      ],
+      "terms": [
+        {
+          "term": "time",
+          "value": 0.31538779973763487
+        },
+        {
+          "term": "fast",
+          "value": 0.2852332273509369
+        },
+        {
+          "term": "long",
+          "value": 0.2720593518618857
+        },
+        {
+          "term": "rides",
+          "value": 0.26615006003000635
+        },
+        {
+          "term": "wait",
+          "value": 0.2589956764650078
+        },
+        {
+          "term": "pass",
+          "value": 0.24273938041116241
+        },
+        {
+          "term": "line",
+          "value": 0.21287288006115002
+        },
+        {
+          "term": "minutes",
+          "value": 0.20983231191494534
+        },
+        {
+          "term": "lines",
+          "value": 0.20881571345444425
+        },
+        {
+          "term": "queues",
+          "value": 0.20251480633517183
+        },
+        {
+          "term": "times",
+          "value": 0.1868664005309812
+        },
+        {
+          "term": "queue",
+          "value": 0.1854122304085643
+        },
+        {
+          "term": "waiting",
+          "value": 0.17433318984864116
+        },
+        {
+          "term": "hour",
+          "value": 0.16937282067100434
+        },
+        {
+          "term": "passes",
+          "value": 0.1541815606331116
+        },
+        {
+          "term": "day",
+          "value": 0.14901364513605453
+        },
+        {
+          "term": "busy",
+          "value": 0.1485303164655879
+        },
+        {
+          "term": "ride",
+          "value": 0.13556566239332887
+        },
+        {
+          "term": "mins",
+          "value": 0.1267208683299971
+        },
+        {
+          "term": "hours",
+          "value": 0.12382855244078843
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Visit logistics and organization",
+      "definition": "Practical aspects of planning and organizing park visits, including ticket purchases, accommodation, transportation, and park access.",
+      "reviews": [
+        "Highly recommend Hotel L'Elysée Val d'Europe for accommodation, the free Disney shuttle to and from the park, and also the Easy Go shuttle taxi service for travelling to and from the airport.",
+        "We definitely recommend staying at one of the Disney properties: ease of entry, early morning access, charging privileges, and even package delivery to your hotel.",
+        "I planned a 2-day, 1-night visit, booked my hotel room in advance at Disney's Hollywood Hotel, and took a taxi from Hong Kong on day 1."
+      ],
+      "terms": [
+        {
+          "term": "park",
+          "value": 0.33844766057937
+        },
+        {
+          "term": "day",
+          "value": 0.2711927405592649
+        },
+        {
+          "term": "hotel",
+          "value": 0.2538251139787409
+        },
+        {
+          "term": "tickets",
+          "value": 0.19684197342573756
+        },
+        {
+          "term": "back",
+          "value": 0.158679526113541
+        },
+        {
+          "term": "ticket",
+          "value": 0.1528152760411053
+        },
+        {
+          "term": "train",
+          "value": 0.14451039709683872
+        },
+        {
+          "term": "walk",
+          "value": 0.13386057894612555
+        },
+        {
+          "term": "disney",
+          "value": 0.13187926464898028
+        },
+        {
+          "term": "stayed",
+          "value": 0.12901718069517337
+        },
+        {
+          "term": "days",
+          "value": 0.12655186482269012
+        },
+        {
+          "term": "entrance",
+          "value": 0.12460169253225616
+        },
+        {
+          "term": "stay",
+          "value": 0.12123201501790827
+        },
+        {
+          "term": "easy",
+          "value": 0.10882829249340444
+        },
+        {
+          "term": "staying",
+          "value": 0.10592165398001661
+        },
+        {
+          "term": "station",
+          "value": 0.10396491349360391
+        },
+        {
+          "term": "extra",
+          "value": 0.10258074808786143
+        },
+        {
+          "term": "hotels",
+          "value": 0.10029870419095653
+        },
+        {
+          "term": "hopper",
+          "value": 0.09140154048595535
+        },
+        {
+          "term": "check",
+          "value": 0.09026986591016047
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Staff service",
+      "definition": "Visitor experiences with park staff, including their friendliness, helpfulness, communication, and quality of service.",
+      "reviews": [
+        "They have people directing foot traffic, yelling at guests about where to walk for no reason (I'd understand if there was something special going on in that area, but there generally never was); we felt like herded cattle.",
+        "Due to knee surgery, I was in a Jazzy scooter on doctor's orders, and not once did a cast member make me feel uncomfortable or that I was an inconvenience.",
+        "On one occasion, when we approached a member of staff to ask why we had been refused access to yet another ride, they lacked basic communication skills and seemed unwilling to help us with our questions."
+      ],
+      "terms": [
+        {
+          "term": "people",
+          "value": 0.28291304157156355
+        },
+        {
+          "term": "staff",
+          "value": 0.24215182898304474
+        },
+        {
+          "term": "cast",
+          "value": 0.13058491530245836
+        },
+        {
+          "term": "friendly",
+          "value": 0.12311331985071895
+        },
+        {
+          "term": "members",
+          "value": 0.12009690460086195
+        },
+        {
+          "term": "clean",
+          "value": 0.10903458812739038
+        },
+        {
+          "term": "french",
+          "value": 0.10633585472013038
+        },
+        {
+          "term": "helpful",
+          "value": 0.09964971825162587
+        },
+        {
+          "term": "told",
+          "value": 0.09382220925037402
+        },
+        {
+          "term": "rude",
+          "value": 0.08624500529630087
+        },
+        {
+          "term": "made",
+          "value": 0.08617902825403514
+        },
+        {
+          "term": "areas",
+          "value": 0.08586279434869765
+        },
+        {
+          "term": "front",
+          "value": 0.08517682151540729
+        },
+        {
+          "term": "member",
+          "value": 0.08396723665365048
+        },
+        {
+          "term": "smoking",
+          "value": 0.0826735311815233
+        },
+        {
+          "term": "happy",
+          "value": 0.08235982704182844
+        },
+        {
+          "term": "children",
+          "value": 0.08233053290514573
+        },
+        {
+          "term": "visitors",
+          "value": 0.08118856237186661
+        },
+        {
+          "term": "english",
+          "value": 0.07842017324976393
+        },
+        {
+          "term": "lack",
+          "value": 0.07370663803751266
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Disney entertainment and characters",
+      "definition": "Disney entertainment activities, including shows, parades, fireworks displays, special events, and encounters with Disney characters.",
+      "reviews": [
+        "Don't miss out on the two indoor shows (Golden Mickeys and Festival of the Lion King), as well as the outdoor ones (Disney on Parade, Glow in the Park Halloween Parade, and Disney in the Stars fireworks).",
+        "Kids get to trick or treat throughout the park, there's a special parade and fireworks show, and you get to meet characters dressed up in costume (or special characters like Jack Skellington who only come out for the event).",
+        "Make sure you catch the Disney Parade at 3 pm, the Lights Parade at 7 pm, and the fireworks at Sleeping Beauty Castle at 8 pm."
+      ],
+      "terms": [
+        {
+          "term": "show",
+          "value": 0.27829116498146617
+        },
+        {
+          "term": "parade",
+          "value": 0.2586099030888761
+        },
+        {
+          "term": "characters",
+          "value": 0.2576650888093666
+        },
+        {
+          "term": "fireworks",
+          "value": 0.22608563525482542
+        },
+        {
+          "term": "mickey",
+          "value": 0.1932606122998184
+        },
+        {
+          "term": "shows",
+          "value": 0.17855119848243395
+        },
+        {
+          "term": "night",
+          "value": 0.17835351797518662
+        },
+        {
+          "term": "castle",
+          "value": 0.16355441515426528
+        },
+        {
+          "term": "main",
+          "value": 0.1601108553368102
+        },
+        {
+          "term": "street",
+          "value": 0.15729916647095163
+        },
+        {
+          "term": "pm",
+          "value": 0.15579006100311504
+        },
+        {
+          "term": "amazing",
+          "value": 0.15049290623372563
+        },
+        {
+          "term": "parades",
+          "value": 0.14642082876261694
+        },
+        {
+          "term": "meet",
+          "value": 0.14430958518754786
+        },
+        {
+          "term": "christmas",
+          "value": 0.12718077065112132
+        },
+        {
+          "term": "character",
+          "value": 0.12616834488423465
+        },
+        {
+          "term": "watch",
+          "value": 0.11356208777056949
+        },
+        {
+          "term": "great",
+          "value": 0.11350296331153907
+        },
+        {
+          "term": "disney",
+          "value": 0.11334389511649566
+        },
+        {
+          "term": "end",
+          "value": 0.11227690260375811
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Food and beverage services",
+      "definition": "Food and beverage offerings within the parks, including restaurants, dining options, prices, and perceptions of food quality and value for money.",
+      "reviews": [
+        "Food can be expensive if you choose to eat in the park, and options are fairly limited (mostly burgers, chicken, or fish), unless you choose to go to one of the proper restaurants for a sit-down meal.",
+        "The Hunters Grill restaurant was nice, with a good choice of food and tasty dishes, but very expensive; four soft drinks and four meals cost over 100 euros, although, to be honest, these are average prices for all the restaurants at Disney.",
+        "Food options are very limited, with a few corn on the cob, hot dog, popcorn, and candy floss stalls, and overcrowded restaurants selling mediocre Chinese and Western food."
+      ],
+      "terms": [
+        {
+          "term": "food",
+          "value": 0.3698217163620528
+        },
+        {
+          "term": "expensive",
+          "value": 0.20720257456645008
+        },
+        {
+          "term": "good",
+          "value": 0.17418146295565182
+        },
+        {
+          "term": "water",
+          "value": 0.15580529730633963
+        },
+        {
+          "term": "restaurants",
+          "value": 0.15136859344016979
+        },
+        {
+          "term": "eat",
+          "value": 0.1445456912911543
+        },
+        {
+          "term": "lunch",
+          "value": 0.14044700336840799
+        },
+        {
+          "term": "money",
+          "value": 0.13422424668984093
+        },
+        {
+          "term": "shops",
+          "value": 0.12695258192698178
+        },
+        {
+          "term": "bring",
+          "value": 0.1268762437019607
+        },
+        {
+          "term": "prices",
+          "value": 0.126034491935008
+        },
+        {
+          "term": "restaurant",
+          "value": 0.12441700707122903
+        },
+        {
+          "term": "meal",
+          "value": 0.1227853799887899
+        },
+        {
+          "term": "places",
+          "value": 0.11923932457763192
+        },
+        {
+          "term": "hot",
+          "value": 0.11500644761365758
+        },
+        {
+          "term": "plenty",
+          "value": 0.11140644774280532
+        },
+        {
+          "term": "drinks",
+          "value": 0.10704061767365185
+        },
+        {
+          "term": "drink",
+          "value": 0.10549385701888483
+        },
+        {
+          "term": "dinner",
+          "value": 0.10358258143147246
+        },
+        {
+          "term": "lots",
+          "value": 0.10230450459491229
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Themed attractions",
+      "definition": "Theme park rides and attractions, including iconic Disney attractions, different types of rides, and visitor evaluations of their enjoyment and availability.",
+      "reviews": [
+        "Let's name a few of this place's best and most popular rides: The Jungle Cruise, The Haunted Mansion, Pirates of the Caribbean, Splash Mountain, Big Thunder Mountain Railroad, Buzz Lightyear's Astro Blasters, Star Tours, Space Mountain, and the Matterhorn Bobsleds.",
+        "We really enjoyed the Indiana Jones and Pirates of the Caribbean rides, as well as the older rides like Peter Pan, Dumbo, Snow White, Haunted House, and the Toon Town area.",
+        "Our favorite rides were Star Tours, Buzz Lightyear Laser Blast, Orbitor, Peter Pan's Flight, Big Thunder Mountain (by far the best!!), Pirates of the Caribbean, Dumbo, and of course the Tea Cups!!"
+      ],
+      "terms": [
+        {
+          "term": "rides",
+          "value": 0.3513580662897552
+        },
+        {
+          "term": "mountain",
+          "value": 0.31443859841858257
+        },
+        {
+          "term": "ride",
+          "value": 0.31263769883103715
+        },
+        {
+          "term": "space",
+          "value": 0.22862880881961625
+        },
+        {
+          "term": "closed",
+          "value": 0.22640369458551185
+        },
+        {
+          "term": "big",
+          "value": 0.21259978470527632
+        },
+        {
+          "term": "small",
+          "value": 0.18714901411749402
+        },
+        {
+          "term": "land",
+          "value": 0.18049046926348103
+        },
+        {
+          "term": "pirates",
+          "value": 0.16496243906929717
+        },
+        {
+          "term": "thunder",
+          "value": 0.16191088331426562
+        },
+        {
+          "term": "star",
+          "value": 0.15867906891967828
+        },
+        {
+          "term": "jones",
+          "value": 0.14737411407035395
+        },
+        {
+          "term": "indiana",
+          "value": 0.14332442326212871
+        },
+        {
+          "term": "attractions",
+          "value": 0.1323676602147968
+        },
+        {
+          "term": "haunted",
+          "value": 0.12678289460585163
+        },
+        {
+          "term": "buzz",
+          "value": 0.1250498938340993
+        },
+        {
+          "term": "caribbean",
+          "value": 0.12355162139407327
+        },
+        {
+          "term": "world",
+          "value": 0.1210854107787213
+        },
+        {
+          "term": "coaster",
+          "value": 0.11367511095148786
+        },
+        {
+          "term": "mansion",
+          "value": 0.11046430648650798
+        }
+      ]
+    }
+  ]
+}
