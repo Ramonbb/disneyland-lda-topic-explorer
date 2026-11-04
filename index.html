@@ -15,24 +15,30 @@
     <p>An interactive LDA topic analysis of online reviews</p>
   </header>
   <main>
-    <section class="card map-card" aria-labelledby="map-heading">
-      <div class="chart-heading">
-        <h2 id="map-heading">Intertopic Distance Map</h2>
-        <div class="chart-info map-info">
-          <details>
-            <summary aria-label="About the intertopic distance map" aria-describedby="map-explanation"><span aria-hidden="true">i</span></summary>
-          </details>
-          <p id="map-explanation">The intertopic distance map was reconstructed from the original LDAvis visualization.</p>
+    <div class="left-column">
+      <section class="card map-card" aria-labelledby="map-heading">
+        <div class="chart-heading">
+          <h2 id="map-heading">Intertopic Distance Map</h2>
+          <div class="chart-info map-info">
+            <details>
+              <summary aria-label="About the intertopic distance map" aria-describedby="map-explanation"><span aria-hidden="true">i</span></summary>
+            </details>
+            <p id="map-explanation">The intertopic distance map was reconstructed from the original LDAvis visualization.</p>
+          </div>
         </div>
-      </div>
-      <p class="map-subtitle">(via multidimensional scaling)</p>
-      <svg id="map" viewBox="-20 170 1235 1230" role="group" aria-labelledby="map-heading">
-        <path class="axes" d="M68 784H1128 M598 254V1314"/>
-        <text class="axis-label" x="68" y="824">PC1</text>
-        <text class="axis-label" x="610" y="268">PC2</text>
-        <g id="nodes"></g>
-      </svg>
-    </section>
+        <p class="map-subtitle">(via multidimensional scaling)</p>
+        <svg id="map" viewBox="-20 170 1235 1230" role="group" aria-labelledby="map-heading">
+          <path class="axes" d="M68 784H1128 M598 254V1314"/>
+          <text class="axis-label" x="68" y="824">PC1</text>
+          <text class="axis-label" x="610" y="268">PC2</text>
+          <g id="nodes"></g>
+        </svg>
+      </section>
+      <section id="review-panel" class="card" aria-labelledby="reviews-heading" hidden>
+        <h2 id="reviews-heading">Representative visitor reviews</h2>
+        <div id="reviews"></div>
+      </section>
+    </div>
     <div class="card results">
       <p id="status" role="status">Select a topic on the map to explore its results.</p>
       <div id="details" hidden>
@@ -44,30 +50,36 @@
             <div class="indicator">
               <div class="indicator-heading">
                 <span>Prevalence</span>
-                <details class="chart-info">
-                  <summary aria-label="About Prevalence"><span aria-hidden="true">i</span></summary>
-                  <p>Estimated percentage of tokens assigned to the topic.</p>
-                </details>
+                <div class="chart-info hover-info">
+                  <details>
+                    <summary aria-describedby="info-prevalence" aria-label="About Prevalence"><span aria-hidden="true">i</span></summary>
+                  </details>
+                  <p id="info-prevalence">Estimated percentage of tokens assigned to the topic.</p>
+                </div>
               </div>
               <p class="indicator-value" data-indicator="prevalence"></p>
             </div>
             <div class="indicator">
               <div class="indicator-heading">
                 <span>Coherence (Cᵥ)</span>
-                <details class="chart-info">
-                  <summary aria-label="About Coherence (Cᵥ)"><span aria-hidden="true">i</span></summary>
-                  <p>Topic coherence was assessed using the Cᵥ metric, calculated with the <code>coherence()</code> function of the sentopics R package using the ten highest-probability terms per topic.</p>
-                </details>
+                <div class="chart-info hover-info">
+                  <details>
+                    <summary aria-describedby="info-coherence" aria-label="About Coherence (Cᵥ)"><span aria-hidden="true">i</span></summary>
+                  </details>
+                  <p id="info-coherence">Topic coherence was assessed using the Cᵥ metric, calculated with the <code>coherence()</code> function of the sentopics R package using the ten highest-probability terms per topic.</p>
+                </div>
               </div>
               <p class="indicator-value" data-indicator="coherence"></p>
             </div>
             <div class="indicator">
               <div class="indicator-heading">
                 <span>Thematic representativeness</span>
-                <details class="chart-info">
-                  <summary aria-label="About Thematic representativeness"><span aria-hidden="true">i</span></summary>
-                  <p>Percentage of sentences whose probability of belonging to the topic exceeds the mean of the maximum topic probabilities.</p>
-                </details>
+                <div class="chart-info hover-info">
+                  <details>
+                    <summary aria-describedby="info-representativeness" aria-label="About Thematic representativeness"><span aria-hidden="true">i</span></summary>
+                  </details>
+                  <p id="info-representativeness">Percentage of sentences whose probability of belonging to the topic exceeds the mean of the maximum topic probabilities.</p>
+                </div>
               </div>
               <p class="indicator-value" data-indicator="thematicRepresentativeness"></p>
             </div>
@@ -76,16 +88,14 @@
         <section aria-labelledby="terms-heading">
           <div class="chart-heading">
             <h2 id="terms-heading">Top 30 relevant terms</h2>
-            <details class="chart-info">
-              <summary aria-label="About the term relevance values"><span aria-hidden="true">i</span></summary>
-              <p>Relevance values of terms were transformed using Exp(Relevance) to facilitate their visualization on a positive scale, without altering their relative ranking within each topic.</p>
-            </details>
+            <div class="chart-info hover-info">
+              <details>
+                <summary aria-describedby="info-term-relevance" aria-label="About the term relevance values"><span aria-hidden="true">i</span></summary>
+              </details>
+              <p id="info-term-relevance">Relevance values of terms were transformed using Exp(Relevance) to facilitate their visualization on a positive scale, without altering their relative ranking within each topic.</p>
+            </div>
           </div>
           <div id="chart"></div>
-        </section>
-        <section aria-labelledby="reviews-heading">
-          <h2 id="reviews-heading">Representative visitor reviews</h2>
-          <div id="reviews"></div>
         </section>
       </div>
     </div>
