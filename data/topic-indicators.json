@@ -1,0 +1,37 @@
+{
+  "1": {
+    "prevalence": 15.3,
+    "coherence": 0.74,
+    "thematicRepresentativeness": 43.25
+  },
+  "2": {
+    "prevalence": 14.91,
+    "coherence": 0.79,
+    "thematicRepresentativeness": 44.21
+  },
+  "3": {
+    "prevalence": 14.32,
+    "coherence": 0.76,
+    "thematicRepresentativeness": 37.23
+  },
+  "4": {
+    "prevalence": 14.23,
+    "coherence": 0.8,
+    "thematicRepresentativeness": 42.42
+  },
+  "5": {
+    "prevalence": 14.06,
+    "coherence": 0.8,
+    "thematicRepresentativeness": 40.35
+  },
+  "6": {
+    "prevalence": 13.77,
+    "coherence": 0.81,
+    "thematicRepresentativeness": 49.94
+  },
+  "7": {
+    "prevalence": 13.42,
+    "coherence": 0.82,
+    "thematicRepresentativeness": 46.89
+  }
+}
