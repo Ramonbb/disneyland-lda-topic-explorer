@@ -23,9 +23,9 @@
         <text class="axis-label" x="610" y="268">PC2</text>
         <g id="nodes"></g>
       </svg>
-      <details class="methodology">
+      <details class="methodology" open>
         <summary>About this visualization</summary>
-        <p>Topics were identified using Latent Dirichlet Allocation (LDA). The map was reconstructed from the LDAvis visualization. For each selected topic, the 30 most relevant terms and three representative visitor reviews are displayed. Relevance values of terms were transformed using Exp(Relevance) to facilitate their visualization on a positive scale, without altering their relative ranking within each topic.</p>
+        <p>Topics were identified using Latent Dirichlet Allocation (LDA). The map was reconstructed from the LDAvis visualization. For each selected topic, the 30 most relevant terms and three representative visitor reviews are displayed.</p>
       </details>
     </section>
     <div class="card results">
@@ -41,7 +41,7 @@
             <h2 id="terms-heading">Top 30 relevant terms</h2>
             <details class="chart-info">
               <summary aria-label="About the term relevance values"><span aria-hidden="true">i</span></summary>
-              <p>The bars show the relevance values supplied in the source workbook. Exponentiating a relevance score places it on a positive scale and preserves its rank within the topic. The workbook does not specify whether this transformation was applied upstream.</p>
+              <p>Relevance values of terms were transformed using Exp(Relevance) to facilitate their visualization on a positive scale, without altering their relative ranking within each topic.</p>
             </details>
           </div>
           <div id="chart"></div>
