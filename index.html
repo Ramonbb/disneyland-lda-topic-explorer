@@ -35,6 +35,38 @@
           <div class="eyebrow">Topic overview</div>
           <h2 id="topic-title" tabindex="-1"></h2>
           <p id="definition"></p>
+          <div class="indicators" role="group" aria-label="Topic indicators">
+            <div class="indicator">
+              <div class="indicator-heading">
+                <span>Prevalence</span>
+                <details class="chart-info">
+                  <summary aria-label="About Prevalence"><span aria-hidden="true">i</span></summary>
+                  <p>Estimated percentage of tokens assigned to the topic.</p>
+                </details>
+              </div>
+              <p class="indicator-value" data-indicator="prevalence"></p>
+            </div>
+            <div class="indicator">
+              <div class="indicator-heading">
+                <span>Coherence (Cᵥ)</span>
+                <details class="chart-info">
+                  <summary aria-label="About Coherence (Cᵥ)"><span aria-hidden="true">i</span></summary>
+                  <p>Topic coherence assessed using the Cᵥ metric (Röder et al., 2015), calculated with the coherence() function in the sentopics R package based on the ten highest-probability terms per topic.</p>
+                </details>
+              </div>
+              <p class="indicator-value" data-indicator="coherence"></p>
+            </div>
+            <div class="indicator">
+              <div class="indicator-heading">
+                <span>Thematic representativeness</span>
+                <details class="chart-info">
+                  <summary aria-label="About Thematic representativeness"><span aria-hidden="true">i</span></summary>
+                  <p>Percentage of sentences whose probability of belonging to the topic exceeds the mean of the maximum topic probabilities.</p>
+                </details>
+              </div>
+              <p class="indicator-value" data-indicator="thematicRepresentativeness"></p>
+            </div>
+          </div>
         </section>
         <section aria-labelledby="terms-heading">
           <div class="chart-heading">

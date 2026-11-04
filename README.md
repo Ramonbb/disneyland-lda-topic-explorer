@@ -6,7 +6,11 @@ A static academic interface for exploring seven LDA topics derived from Disneyla
 
 The workbook `tabla.xlsx` has one sheet, `disney tabla github`. The overview in A29:F36 uses the columns `Topic 1`, `Label`, `Description` and `Representative review excerpt 1` through `3`. The current term scores are in A1:C211 of `Sheet 1` in `top_relevance_terms_disney.xlsx`, with columns `topic`, `term` and `relevance`. The converter joins term rows to overview records by the exact topic label, keeps IDs 1–7 and sorts the 30 terms for each topic by decreasing relevance. The descriptions and 21 excerpts retain the workbook text. The axis label follows the workbook's `relevance` header. The formula and parameter settings used to compute the workbook scores are unspecified.
 
-The reference in `assets/ldavis-reference.png` is the original image embedded in the workbook. The SVG in the explorer uses centres and radii measured in screenshot pixels. These are approximate visual measurements and do not establish original MDS coordinates or topic prevalences. The map uses a fixed coordinate system, with the intersection of PC1 and PC2 at (598, 784) in image pixels. The original topic 3–6 overlap is visible and both centres are directly selectable.
+The reference in `assets/ldavis-reference.png` is the original image embedded in the workbook. The SVG uses approximate circle centres measured in screenshot pixels. Circle areas are proportional to the supplied prevalence percentages. Radii scale with the square root of prevalence, using the measured radius of 117 pixels for topic 1 (15.30%) as the reference. The map uses a fixed coordinate system, with the intersection of PC1 and PC2 at (598, 784) in image pixels. The original topic 3–6 overlap is visible and both centres are directly selectable.
+
+## Topic indicators
+
+`data/topic-indicators.json` stores indicator values by topic ID. Prevalence uses the supplied percentages and also determines the circle areas. Enter percentage-point numbers for `prevalence` and `thematicRepresentativeness`, and a decimal number for `coherence`. A `null` value displays as Unavailable. The workbook converter writes the separate `topics.json` dataset.
 
 ## Generate or update the dataset
 
