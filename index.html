@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Topic Explorer</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script defer src="./js/app.js"></script>
+</head>
+<body>
+  <header class="page-header">
+    <div class="eyebrow">Disneyland visitor reviews / Topic modeling</div>
+    <h1>Interactive Topic Explorer</h1>
+    <p>Exploring visitor experiences at Disney theme parks through topic modeling</p>
+  </header>
+  <main>
+    <section class="card map-card" aria-labelledby="map-heading">
+      <h2 id="map-heading">Intertopic Distance Map <span>(via multidimensional scaling)</span></h2>
+      <svg id="map" viewBox="-20 170 1235 1230" role="group" aria-labelledby="map-heading">
+        <path class="axes" d="M68 784H1128 M598 254V1314"/>
+        <text class="axis-label" x="68" y="824">PC1</text>
+        <text class="axis-label" x="610" y="268">PC2</text>
+        <g id="nodes"></g>
+      </svg>
+    </section>
+    <div class="card results">
+      <p id="status" role="status">Select a topic on the map to explore its results.</p>
+      <div id="details" hidden>
+        <section aria-labelledby="topic-title">
+          <div class="eyebrow">Topic overview</div>
+          <h2 id="topic-title" tabindex="-1"></h2>
+          <p id="definition"></p>
+        </section>
+        <section aria-labelledby="terms-heading">
+          <h2 id="terms-heading">Top 20 relevant terms</h2>
+          <div id="chart"></div>
+        </section>
+        <section aria-labelledby="reviews-heading">
+          <h2 id="reviews-heading">Representative visitor reviews</h2>
+          <div id="reviews"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
