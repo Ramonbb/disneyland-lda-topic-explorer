@@ -85,6 +85,7 @@ function showTopic(topic) {
     return card;
   });
   document.querySelector("#reviews").replaceChildren(...reviews);
+  document.querySelector("#review-panel").hidden = false;
   details.hidden = false;
   drawChart(topic, true);
 }
@@ -132,6 +133,10 @@ async function start() {
   new ResizeObserver(() => {
     if (selected && chart.clientWidth !== chartWidth) drawChart(selected);
   }).observe(chart);
+  const leftColumn = document.querySelector(".left-column");
+  new ResizeObserver(([entry]) => {
+    leftColumn.style.setProperty("--left-height", `${entry.contentRect.height}px`);
+  }).observe(leftColumn);
   showTopic(topics.find(topic => topic.id === 1));
 }
 
