@@ -16,17 +16,22 @@
   </header>
   <main>
     <section class="card map-card" aria-labelledby="map-heading">
-      <h2 id="map-heading">Intertopic Distance Map <span>(via multidimensional scaling)</span></h2>
+      <div class="chart-heading">
+        <h2 id="map-heading">Intertopic Distance Map</h2>
+        <div class="chart-info map-info">
+          <details>
+            <summary aria-label="About the intertopic distance map" aria-describedby="map-explanation"><span aria-hidden="true">i</span></summary>
+          </details>
+          <p id="map-explanation">The intertopic distance map was reconstructed from the original LDAvis visualization.</p>
+        </div>
+      </div>
+      <p class="map-subtitle">(via multidimensional scaling)</p>
       <svg id="map" viewBox="-20 170 1235 1230" role="group" aria-labelledby="map-heading">
         <path class="axes" d="M68 784H1128 M598 254V1314"/>
         <text class="axis-label" x="68" y="824">PC1</text>
         <text class="axis-label" x="610" y="268">PC2</text>
         <g id="nodes"></g>
       </svg>
-      <details class="methodology" open>
-        <summary>About this visualization</summary>
-        <p>Topics were identified using Latent Dirichlet Allocation (LDA). The map was reconstructed from the LDAvis visualization. For each selected topic, the 30 most relevant terms and three representative visitor reviews are displayed.</p>
-      </details>
     </section>
     <div class="card results">
       <p id="status" role="status">Select a topic on the map to explore its results.</p>
@@ -51,7 +56,7 @@
                 <span>Coherence (Cᵥ)</span>
                 <details class="chart-info">
                   <summary aria-label="About Coherence (Cᵥ)"><span aria-hidden="true">i</span></summary>
-                  <p>Topic coherence assessed using the Cᵥ metric (Röder et al., 2015), calculated with the coherence() function in the sentopics R package based on the ten highest-probability terms per topic.</p>
+                  <p>Topic coherence was assessed using the Cᵥ metric, calculated with the <code>coherence()</code> function of the sentopics R package using the ten highest-probability terms per topic.</p>
                 </details>
               </div>
               <p class="indicator-value" data-indicator="coherence"></p>
