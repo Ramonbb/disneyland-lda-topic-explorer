@@ -1,11 +1,14 @@
 "use strict";
 
-// Centres and radii in screenshot pixels, measured from the embedded reference.
+// Centres in screenshot pixels and supplied prevalence percentages, by topic ID.
 const geometry = [
-  [531.5, 1026, 117], [437.5, 306, 115.5], [116, 756.5, 113.5],
-  [348, 684.5, 113], [599.5, 1262, 112.3], [218, 916, 111],
-  [1080, 652, 109.7]
+  [531.5, 1026, 15.30], [437.5, 306, 14.91], [116, 756.5, 14.32],
+  [348, 684.5, 14.23], [599.5, 1262, 14.06], [218, 916, 13.77],
+  [1080, 652, 13.42]
 ];
+// Keep topic 1 at its measured radius and scale the other circle areas to match.
+const referenceRadius = 117;
+const referencePrevalence = geometry[0][2];
 const topicColors = ["#376d98", "#2c5d87", "#467da9", "#346897", "#4b79a2", "#3b648a", "#315b80"];
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const status = document.querySelector("#status");
@@ -92,7 +95,8 @@ async function start() {
   const { topics } = await response.json();
   const nodes = document.querySelector("#nodes");
   for (const topic of topics) {
-    const [cx, cy, r] = geometry[topic.id - 1];
+    const [cx, cy, prevalence] = geometry[topic.id - 1];
+    const r = referenceRadius * Math.sqrt(prevalence / referencePrevalence);
     const group = svgElement("g", {
       class: "topic", role: "button", tabindex: 0, "aria-pressed": false,
       "data-id": topic.id, "aria-label": `Topic ${topic.id}: ${topic.name}`
