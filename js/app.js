@@ -1,14 +1,13 @@
 "use strict";
 
-// Centres in screenshot pixels and supplied prevalence percentages, by topic ID.
+// Centres in screenshot pixels, by topic ID.
 const geometry = [
-  [531.5, 1026, 15.30], [437.5, 306, 14.91], [116, 756.5, 14.32],
-  [348, 684.5, 14.23], [599.5, 1262, 14.06], [218, 916, 13.77],
-  [1080, 652, 13.42]
+  [531.5, 1026], [437.5, 306], [116, 756.5],
+  [348, 684.5], [599.5, 1262], [218, 916],
+  [1080, 652]
 ];
 // Keep topic 1 at its measured radius and scale the other circle areas to match.
 const referenceRadius = 117;
-const referencePrevalence = geometry[0][2];
 const topicColors = ["#376d98", "#19766d", "#6958a0", "#a15532", "#a33c69", "#527138", "#546272"];
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const status = document.querySelector("#status");
@@ -68,6 +67,13 @@ function showTopic(topic) {
   status.textContent = `${title} selected.`;
   document.querySelector("#topic-title").textContent = title;
   document.querySelector("#definition").textContent = topic.definition;
+  document.querySelectorAll("[data-indicator]").forEach(field => {
+    const key = field.dataset.indicator;
+    const value = topic.indicators?.[key];
+    field.textContent = !Number.isFinite(value) ? "Unavailable"
+      : key === "coherence" ? value.toFixed(2) : `${value.toFixed(2)}%`;
+    field.closest(".indicator").querySelector("details").open = false;
+  });
   const reviews = topic.reviews.map((review, index) => {
     const card = document.createElement("blockquote");
     card.className = "review";
@@ -90,12 +96,20 @@ function svgElement(tag, attrs) {
 }
 
 async function start() {
-  const response = await fetch("./data/topics.json");
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  const { topics } = await response.json();
+  const [topicData, indicators] = await Promise.all(
+    ["./data/topics.json", "./data/topic-indicators.json"].map(async path => {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error(`HTTP ${response.status} for ${path}`);
+      return response.json();
+    })
+  );
+  const { topics } = topicData;
+  const referencePrevalence = indicators[1].prevalence;
   const nodes = document.querySelector("#nodes");
   for (const topic of topics) {
-    const [cx, cy, prevalence] = geometry[topic.id - 1];
+    topic.indicators = indicators[topic.id];
+    const [cx, cy] = geometry[topic.id - 1];
+    const { prevalence } = topic.indicators;
     const r = referenceRadius * Math.sqrt(prevalence / referencePrevalence);
     const group = svgElement("g", {
       class: "topic", role: "button", tabindex: 0, "aria-pressed": false,
